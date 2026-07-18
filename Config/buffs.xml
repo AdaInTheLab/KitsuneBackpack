@@ -1,0 +1,13 @@
+<configs>
+
+	<!-- God mode unlocks the whole bag (vanilla 45) -->
+	<set xpath="/buffs/buff[@name='god']/effect_group/passive_effect[@name='CarryCapacity']/@value">72</set>
+
+	<!-- Steroids unlock the whole bag with the same +5 cushion vanilla has (50 over a 45 bag) -->
+	<set xpath="/buffs/buff[@name='buffDrugSteroids']/effect_group/passive_effect[@name='CarryCapacity']/@value">77</set>
+
+	<!-- Encumbrance penalty per over-filled slot, rescaled so a fully encumbered 72 bag tops out -->
+	<!-- around the same ~70% mobility loss as vanilla (0.026 x 27) instead of stacking past 100% -->
+	<set xpath="/buffs/buff[@name='buffEncumberedInv']/effect_group/triggered_effect[@operation='multiply']/@value">0.015</set>
+
+</configs>

@@ -1,0 +1,14 @@
+<configs>
+
+	<!-- ============================================================ -->
+	<!-- Backpack grid: 45 slots (5x9) to 72 slots (8x9)              -->
+	<!-- Width stays 606 so nothing else needs repositioning; the     -->
+	<!-- window just grows downward by 3 rows (67px each).            -->
+	<!-- ============================================================ -->
+
+	<set xpath="/windows/window[@name='windowBackpack']/@height">550</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/@height">504</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/sprite[@name='backgroundMain']/@height">537</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/grid[@name='inventory']/@rows">8</set>
+
+</configs>

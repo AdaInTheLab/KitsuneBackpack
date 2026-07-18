@@ -1,0 +1,6 @@
+<configs>
+
+	<!-- Dropped-on-death / dropped-item backpack container: vanilla 7x10 = 70 cannot hold a full 72 bag -->
+	<set xpath="/lootcontainers/lootcontainer[@name='playerBackpack']/@size">9,8</set>
+
+</configs>

@@ -1,0 +1,6 @@
+<configs>
+
+	<!-- Pack Mule unlocks 9 slots per level (vanilla 3,6,10,14,18): 27 base + 45 = full 72 bag at level 5 -->
+	<set xpath="/progression/perks/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">9,18,27,36,45</set>
+
+</configs>

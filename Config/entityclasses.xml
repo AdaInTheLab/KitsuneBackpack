@@ -1,0 +1,7 @@
+<configs>
+
+	<!-- Total inventory slots shown on the UI. Carry capacity (unlocked slots) is untouched: -->
+	<!-- 27 base, so the extra slots start as locked spaces, unlocked by Pack Mule / pocket mods. -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BagSize']/@value">72</set>
+
+</configs>
