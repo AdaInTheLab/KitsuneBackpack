@@ -1,6 +1,6 @@
 # KitsuneBackpack
 
-A 72-slot backpack for 7 Days to Die V2.x that keeps the vanilla locked-slot progression instead of handing you everything at spawn.
+A 72-slot backpack for 7 Days to Die V3.0.x that keeps the vanilla locked-slot progression instead of handing you everything at spawn.
 
 - **Bag size:** 45 to 72 (8 rows of 9)
 - **27 slots free at spawn**, the rest show as locked spaces, just like vanilla
