@@ -1,14 +1,31 @@
 <configs>
 
 	<!-- ============================================================ -->
-	<!-- Backpack grid: 45 slots (5x9) to 72 slots (8x9)              -->
-	<!-- Width stays 606 so nothing else needs repositioning; the     -->
-	<!-- window just grows downward by 3 rows (67px each).            -->
+	<!-- Backpack grid: 45 slots (9x5) to 136 slots (17x8)            -->
+	<!-- The bag grows SIDEWAYS, not down: 136 has no 9-wide          -->
+	<!-- factoring, and a 15-row bag would be ~1019px tall and fight  -->
+	<!-- the loot window for vertical space. 17 cols x 67px = 1139,   -->
+	<!-- +6 for the frame = 1145 wide, and the height is untouched.   -->
 	<!-- ============================================================ -->
 
+	<set xpath="/windows/window[@name='windowBackpack']/@width">1145</set>
 	<set xpath="/windows/window[@name='windowBackpack']/@height">550</set>
 	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/@height">504</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/sprite[@name='backgroundMain']/@width">1145</set>
 	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/sprite[@name='backgroundMain']/@height">537</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/grid[@name='inventory']/@cols">17</set>
 	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/grid[@name='inventory']/@rows">8</set>
+
+	<!-- Header controls are positioned from the left edge, so they would sit stranded -->
+	<!-- mid-window at the new width. Shift each by 539 (1145 - 606) to keep them right-aligned. -->
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='header']/rect[@controller='ContainerStandardControls']/@pos">859,0</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='header']/label[@text='{currencyamount}']/@pos">1031,-8</set>
+	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='header']/sprite[@name='costIcon']/@pos">1116,-10</set>
+
+	<!-- The loot window builds ONE pool of item-stack controllers from this grid's rows x cols -->
+	<!-- (90 in vanilla) and hides the spares; a container with more slots than the pool simply -->
+	<!-- never renders them. The dropped-death bag is now 136, so the pool has to grow with it. -->
+	<!-- Columns/Rows are set per-container at open time, so other containers are unaffected. -->
+	<set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">17</set>
 
 </configs>
