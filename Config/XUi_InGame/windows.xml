@@ -24,8 +24,9 @@
 
 	<!-- The loot window builds ONE pool of item-stack controllers from this grid's rows x cols -->
 	<!-- (90 in vanilla) and hides the spares; a container with more slots than the pool simply -->
-	<!-- never renders them. The dropped-death bag is now 136, so the pool has to grow with it. -->
+	<!-- never renders them. The dropped-death bag is 13x11, so the pool has to cover 143. -->
 	<!-- Columns/Rows are set per-container at open time, so other containers are unaffected. -->
-	<set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">17</set>
+	<set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@cols">13</set>
+	<set xpath="/windows/window[@name='windowLooting']/rect[@name='content']/grid[@name='queue']/@rows">11</set>
 
 </configs>
