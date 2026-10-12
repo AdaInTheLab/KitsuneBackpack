@@ -1,0 +1,6 @@
+<configs>
+
+	<!-- Pack Mule x3 (vanilla V3.3 4,12,24,40,56): 32 base + 168 = all 200 slots unlocked at level 5 -->
+	<set xpath="/progression/perks/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">12,36,72,120,168</set>
+
+</configs>

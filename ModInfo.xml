@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<xml>
-  <Name value="KitsuneBackpack" />
-  <DisplayName value="KitsuneBackpack" />
-  <Description value="136 slot backpack. Keeps the vanilla locked-slot progression: 27 free at spawn, Pack Mule unlocks ~22 per level to a full 136" />
-  <Author value="Kitsune" />
-  <Version value="1.2.0" />
-</xml>

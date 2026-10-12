@@ -1,0 +1,13 @@
+<configs>
+
+	<!-- The V3.3 backpack items, doubled: each one adds twice the slots it does in vanilla, -->
+	<!-- so a Q6 Large adds 96 instead of 48 and takes the 104 base bag to 200. -->
+	<!-- Vanilla: Small 2-16, Medium 18-32, Large 34-48 (Q1-Q6). -->
+	<set xpath="/items/item[@name='backpackSmall']/effect_group/passive_effect[@name='BagSize']/@value">4,8,12,16,24,32</set>
+	<set xpath="/items/item[@name='backpackSmall']/effect_group/display_value[@name='dSlotCount']/@value">4,8,12,16,24,32</set>
+	<set xpath="/items/item[@name='backpackMedium']/effect_group/passive_effect[@name='BagSize']/@value">36,40,44,48,56,64</set>
+	<set xpath="/items/item[@name='backpackMedium']/effect_group/display_value[@name='dSlotCount']/@value">36,40,44,48,56,64</set>
+	<set xpath="/items/item[@name='backpackLarge']/effect_group/passive_effect[@name='BagSize']/@value">68,72,76,80,88,96</set>
+	<set xpath="/items/item[@name='backpackLarge']/effect_group/display_value[@name='dSlotCount']/@value">68,72,76,80,88,96</set>
+
+</configs>

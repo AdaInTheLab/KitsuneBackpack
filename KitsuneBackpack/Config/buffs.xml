@@ -1,0 +1,14 @@
+<configs>
+
+	<!-- God mode unlocks the whole bag (vanilla V3.3: 96, its MaxBagSize) -->
+	<set xpath="/buffs/buff[@name='god']/effect_group/passive_effect[@name='CarryCapacity']/@value">136</set>
+
+	<!-- Steroids unlock the whole bag, as vanilla V3.3 does (base_set 96 = its MaxBagSize) -->
+	<set xpath="/buffs/buff[@name='buffDrugSteroids']/effect_group/passive_effect[@name='CarryCapacity']/@value">136</set>
+
+	<!-- Encumbrance penalty per over-filled slot. Vanilla V3.3 sizes it so a fully encumbered bag -->
+	<!-- loses ~70% mobility: 0.011 x (96 - 32) = 0.70. Same target here: the worst case is -->
+	<!-- 136 - 32 base carry = 104 slots, so 0.0067 x 104 = 0.70. -->
+	<set xpath="/buffs/buff[@name='buffEncumberedInv']/effect_group/triggered_effect[@operation='multiply']/@value">0.0067</set>
+
+</configs>

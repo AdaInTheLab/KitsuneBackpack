@@ -1,32 +1,39 @@
 # KitsuneBackpack
 
-A 136-slot backpack for 7 Days to Die V3.3 that keeps the vanilla locked-slot progression instead of handing you everything at spawn.
+Bigger backpacks for 7 Days to Die V3.3 that keep the vanilla locked-slot progression instead of handing you everything at spawn. Two mods live in this repo. **Install one, not both:**
 
-- **Bag size:** 45 to 136 (8 columns x 17 rows, scrolling)
-- **27 slots free at spawn**, the rest show as locked spaces, just like vanilla
-- **Pack Mule** unlocks ~22 slots per level: a full 136 at level 5 (pocket mods still work on top)
-- God mode and steroids unlock the whole bag
-- Encumbrance penalty rescaled (0.026 to 0.0064 per over-filled slot) so a stuffed bag tops out around the vanilla ~70% mobility loss instead of stacking past 100%
-- Dropped-on-death bag enlarged to 13x11 (143) so a full 136-slot inventory actually fits in it
+| | **KitsuneBackpack** (136) | **KitsuneBackpack200** (200) |
+|---|---|---|
+| Bag size | 136, fixed | 104, up to 200 with a Q6 Large backpack |
+| Vanilla backpack items | no effect (the bag is already full size) | doubled: Small +4 to +32, Medium +36 to +64, Large +68 to +96 |
+| Free at spawn | 32 | 32 |
+| Pack Mule | ~21 per level, all 136 at level 5 | 12/36/72/120/168, all 200 at level 5 |
+| Death bag | 8x20 (160) | 8x28 (224) |
+| Encumbrance per over-filled slot | 0.0067 | 0.0042 |
 
-Pure XML modlet (XPath patches only), no DLLs.
+Both:
 
-**Game version:** 1.2.0 needs V3.3 or later. V3.3 rebuilt the backpack window around a scrolling grid, and the UI patch targets that layout. On V3.0 to V3.2, use 1.1.x.
+- Free slots are vanilla's 32 base carry (scaled by the sandbox carry setting). The rest show as locked spaces until Pack Mule or pocket mods unlock them.
+- God mode and steroids unlock the whole bag, as they do in vanilla.
+- Encumbrance is rescaled so a stuffed bag tops out around vanilla's ~70% mobility loss instead of stacking past 100%.
+- Pure XML modlets (XPath patches only), no DLLs.
+
+**Game version:** V3.3 or later. V3.3 rebuilt the backpack window around a scrolling grid and added a bag size cap, and both mods target that. On V3.0 to V3.2, use KitsuneBackpack 1.0.1.
 
 ## How the bag fits on screen
 
-V3.3's backpack window is a scrollview holding an 8-wide grid (12 rows, 96 cells, in vanilla). The grid builds one item-stack controller per cell when the window opens for the first time, and a bag slot without a cell never renders, so the mod raises the grid to 17 rows: 8 x 17 = 136, one cell per slot. The window keeps its vanilla width and height and the extra rows scroll.
-
-Up to 1.1.x the bag had to be on screen all at once, which made the window 1145px wide and needed a HUD size of 0.75 or lower. With the scrolling grid the backpack is vanilla width again, so that limit no longer applies.
+V3.3's backpack window is a scrollview holding an 8-wide grid (12 rows, 96 cells, in vanilla). The grid builds one item-stack controller per cell when the window opens for the first time, and a bag slot without a cell never renders, so the mods raise the grid to one cell per slot: 8 x 17 = 136, or 8 x 25 = 200. The window keeps its vanilla width and height and the extra rows scroll.
 
 ## Install
 
-Drop the `KitsuneBackpack` folder into your `Mods` folder. Needed on **both server and client**: bag data is pushed by the server, but the backpack grid is client-side UI, so players without the mod will not see their extra slots.
+Drop **one** of the `KitsuneBackpack` or `KitsuneBackpack200` folders into your `Mods` folder. It's needed on **both server and client**: bag data is pushed by the server, but the backpack grid is client-side UI, so players without the mod will not see their extra slots.
+
+With KitsuneStorage, use KitsuneStorage 1.0.3 or later alongside KitsuneBackpack200. Older versions shrink the loot window pool back to 192, and the bottom of a full 200 death bag won't show.
 
 ## Notes
 
-- Growing the bag is safe on existing saves. Removing the mod later shrinks bags back to 45 and can orphan items in the removed slots.
-- The same applies to shrinking it: going from 136 back to 72 orphans anything in slots 73-136.
-- The loot window's item-stack controller pool is raised from 90 to 156 (`windowLooting` grid `cols` 9 to 13, `rows` 10 to 12). Vanilla builds that pool once and hides the spares, and per-container Columns/Rows are set at open time, so ordinary crates and safes are unchanged. 156 covers the 143-slot death bag and KitsuneStorage's 144-slot steel crate, since whichever of the two mods loads last sets this pool.
-- The death bag is 13x11 rather than one long row. The loot window sits in the *left* stack panel next to the backpack in the *centre* one, and 7DTD packs those panels side by side, so every loot column costs 75px of screen width while V3.3's loot window scrolls vertically.
+- **The bag size cap.** V3.3 added `MaxBagSize` (96) to the player and clamps the bag to it, so both mods raise it. KitsuneBackpack 1.2.0 missed this and stayed at 96 on V3.3. 1.2.1 fixes that.
+- **The death bag holds more than the bag.** With drop-on-death set to everything, the game puts the bag, the toolbelt (10) and the equipment (up to 13) into a single dropped bag, and anything that doesn't fit is lost. That's why the death bags are 160 and 224, not 136 and 200. They stay 8 wide like vanilla: V3.3's loot window is as wide as the container's columns and scrolls vertically, so extra rows cost nothing next to the backpack.
+- **The loot window pool.** The loot window builds its pool of item-stack controllers once, from its grid's rows x cols (90 in vanilla), and never shows slots past it. KitsuneBackpack needs 168, KitsuneBackpack200 228, and KitsuneStorage 192 for its 144-slot steel crate. All three use 12 columns and only ever raise the rows, so whichever loads last can't shrink the pool below what another needs. Per-container Columns/Rows are set at open time, so ordinary crates and safes are unchanged.
+- Growing the bag is safe on existing saves. Removing the mod later shrinks bags back to vanilla and can orphan items in the removed slots. The same goes for switching from KitsuneBackpack200 to KitsuneBackpack with more than 136 slots in use.
 - Part of the Kitsune QoL family: [KitsuneMoreSloots](https://github.com/AdaInTheLab/KitsuneMoreSloots), [KitsuneStorage](https://github.com/AdaInTheLab/KitsuneStorage).

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xml>
+  <Name value="KitsuneBackpack200" />
+  <DisplayName value="KitsuneBackpack 200" />
+  <Description value="200 slot backpack for V3.3. Scales the vanilla backpack items so a Q6 Large backpack reaches 200, with the locked-slot progression scaled to match: 32 free at spawn, Pack Mule unlocks up to 168 more. Install this OR KitsuneBackpack, not both." />
+  <Author value="Kitsune" />
+  <Version value="1.0.0" />
+</xml>
