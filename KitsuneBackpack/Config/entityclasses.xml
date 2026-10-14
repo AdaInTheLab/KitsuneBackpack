@@ -1,0 +1,12 @@
+<configs>
+
+	<!-- Total inventory slots shown on the UI. Carry capacity (unlocked slots) is untouched: -->
+	<!-- 32 base (x the sandbox carry modifier), so the extra slots start as locked spaces, -->
+	<!-- unlocked by Pack Mule / pocket mods. -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BagSize']/@value">136</set>
+
+	<!-- V3.3 clamps BagSize to this (EntityPlayer.CalcCurrentBackpackSize: Clamp(BagSize, 1, MaxBagSize)). -->
+	<!-- Vanilla sets 96, so without this the bag silently stops at 96. -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='MaxBagSize']/@value">136</set>
+
+</configs>

@@ -1,0 +1,11 @@
+<configs>
+
+	<!-- V3.3 grows the bag with the backpack you wear: 48 base + up to 48 from a Large backpack = 96. -->
+	<!-- Same shape at 200: 104 base + up to 96 from the backpack items (items.xml) = 200. -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/passive_effect[@name='BagSize']/@value">104</set>
+
+	<!-- V3.3 clamps BagSize to this (EntityPlayer.CalcCurrentBackpackSize: Clamp(BagSize, 1, MaxBagSize)). -->
+	<!-- Vanilla sets 96. -->
+	<set xpath="/entity_classes/entity_class[@name='playerMale']/property[@name='MaxBagSize']/@value">200</set>
+
+</configs>

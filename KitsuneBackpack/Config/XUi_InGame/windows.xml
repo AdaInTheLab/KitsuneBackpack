@@ -14,12 +14,13 @@
 	<set xpath="/windows/window[@name='windowBackpack']/rect[@name='content']/scrollview/grid[@name='inventory']/@rows">17</set>
 
 	<!-- The loot window builds ONE pool of item-stack controllers from this grid's rows x cols -->
-	<!-- (90 in vanilla) and hides the spares; a container with more slots than the pool simply -->
-	<!-- never renders them. The dropped-death bag is 13x11 = 143; 13x12 = 156 also covers -->
-	<!-- KitsuneStorage's 144-slot steel crate, since whichever of the two mods loads last sets -->
-	<!-- this pool. Columns/Rows are set per-container at open time, so other containers are unaffected. -->
-	<!-- // matches the grid with or without V3.3's scrollview wrapper. -->
-	<set xpath="/windows/window[@name='windowLooting']//grid[@name='queue']/@cols">13</set>
-	<set xpath="/windows/window[@name='windowLooting']//grid[@name='queue']/@rows">12</set>
+	<!-- (90 in vanilla) at Init and hides the spares; a container with more slots than the pool -->
+	<!-- never renders them. The death bag is 160, so the pool needs 12 x 14 = 168. -->
+	<!-- KitsuneStorage patches this same grid (12 cols, 144-slot steel crate), so both mods use -->
+	<!-- 12 columns and only ever RAISE the rows: whichever loads last can't shrink the pool -->
+	<!-- below what the other needs. Columns/Rows are set per-container at open time, so other -->
+	<!-- containers are unaffected. // matches with or without V3.3's scrollview wrapper. -->
+	<set xpath="/windows/window[@name='windowLooting']//grid[@name='queue']/@cols">12</set>
+	<set xpath="/windows/window[@name='windowLooting']//grid[@name='queue'][@rows &lt; 14]/@rows">14</set>
 
 </configs>

@@ -1,0 +1,11 @@
+<configs>
+
+	<!-- Dropped-on-death / dropped-item backpack container (vanilla V3.3: 8x15 = 120). -->
+	<!-- With drop-on-death set to everything, EntityPlayerLocal.dropBackpack puts the bag, the -->
+	<!-- toolbelt (10) and the equipment (up to 13) into this ONE container and ignores AddItem's -->
+	<!-- result, so anything that doesn't fit is lost: 136 + 10 + 13 = 159 worst case. -->
+	<!-- 8x20 = 160. Kept 8 wide like vanilla: V3.3's loot window is cols x 75px wide and scrolls -->
+	<!-- vertically, so rows are cheap and columns cost screen width next to the backpack. -->
+	<set xpath="/lootcontainers/lootcontainer[@name='playerBackpack']/@size">8,20</set>
+
+</configs>
