@@ -37,3 +37,7 @@ With KitsuneStorage, use KitsuneStorage 1.0.3 or later alongside KitsuneBackpack
 - **The loot window pool.** The loot window builds its pool of item-stack controllers once, from its grid's rows x cols (90 in vanilla), and never shows slots past it. KitsuneBackpack needs 168, KitsuneBackpack200 228, and KitsuneStorage 192 for its 144-slot steel crate. All three use 12 columns and only ever raise the rows, so whichever loads last can't shrink the pool below what another needs. Per-container Columns/Rows are set at open time, so ordinary crates and safes are unchanged.
 - Growing the bag is safe on existing saves. Removing the mod later shrinks bags back to vanilla and can orphan items in the removed slots. The same goes for switching from KitsuneBackpack200 to KitsuneBackpack with more than 136 slots in use.
 - Part of the Kitsune QoL family: [KitsuneMoreSloots](https://github.com/AdaInTheLab/KitsuneMoreSloots), [KitsuneStorage](https://github.com/AdaInTheLab/KitsuneStorage).
+
+## License
+
+[CC BY-NC-SA 4.0](LICENSE), with an extra permission for servers that make money: see [NOTICE.md](NOTICE.md). In short: play it, change it and share it, with credit, not for sale, and with changed versions under the same license.
