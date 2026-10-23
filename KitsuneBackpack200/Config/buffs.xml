@@ -6,6 +6,15 @@
 	<!-- Steroids unlock the whole bag, as vanilla V3.3 does (base_set 96 = its MaxBagSize) -->
 	<set xpath="/buffs/buff[@name='buffDrugSteroids']/effect_group/passive_effect[@name='CarryCapacity']/@value">200</set>
 
+	<!-- V3.4 turns Chicken Nuggets (base_add 48) and the Twitch Pack Mule buff (base_set 50) into -->
+	<!-- whole-bag effects at 96, vanilla's MaxBagSize. Here the whole bag is 200. V3.3 keeps its own values. -->
+	<conditional>
+		<if cond="game_version() &gt;= version(3,40)">
+			<set xpath="/buffs/buff[@name='buffChickenNuggets']/effect_group/passive_effect[@name='CarryCapacity']/@value">200</set>
+			<set xpath="/buffs/buff[@name='twitch_buffPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">200</set>
+		</if>
+	</conditional>
+
 	<!-- Encumbrance penalty per over-filled slot. Vanilla V3.3 sizes it so a fully encumbered bag -->
 	<!-- loses ~70% mobility: 0.011 x (96 - 32) = 0.70. Same target here: the worst case is -->
 	<!-- 200 - 32 base carry = 168 slots, so 0.0042 x 168 = 0.71. -->

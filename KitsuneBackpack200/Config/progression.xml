@@ -3,4 +3,14 @@
 	<!-- Pack Mule x3 (vanilla V3.3 4,12,24,40,56): 32 base + 168 = all 200 slots unlocked at level 5 -->
 	<set xpath="/progression/perks/perk[@name='perkPackMule']/effect_group/passive_effect[@name='CarryCapacity']/@value">12,36,72,120,168</set>
 
+	<!-- V3.4 turns two book bonuses into whole-bag effects at 96, vanilla's MaxBagSize: Fireman's -->
+	<!-- Almanac complete in biomes 8 and 9 (was base_add 45) and Night Stalker's thief adrenaline at -->
+	<!-- night (was 27). Here the whole bag is 200. V3.3 keeps its own values. -->
+	<conditional>
+		<if cond="game_version() &gt;= version(3,40)">
+			<set xpath="/progression/perks/book[@name='perkFiremansAlmanacComplete']/effect_group/passive_effect[@name='CarryCapacity']/@value">200</set>
+			<set xpath="/progression/perks/book[@name='perkNightStalkerThiefAdrenaline']/effect_group/passive_effect[@name='CarryCapacity']/@value">200</set>
+		</if>
+	</conditional>
+
 </configs>
