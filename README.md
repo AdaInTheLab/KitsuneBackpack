@@ -26,7 +26,10 @@ V3.3's backpack window is a scrollview holding an 8-wide grid (12 rows, 96 cells
 
 ## Install
 
-Drop **one** of the `KitsuneBackpack` or `KitsuneBackpack200` folders into your `Mods` folder. It's needed on **both server and client**: bag data is pushed by the server, but the backpack grid is client-side UI, so players without the mod will not see their extra slots.
+Drop **one** of the `KitsuneBackpack` or `KitsuneBackpack200` folders into your `Mods` folder.
+
+- **Dedicated server:** install it on the **server only**. Both mods are pure XML, and a dedicated server sends its patched XML to every client that joins, the backpack grid (`XUi_InGame`) included, so players need nothing and can keep EAC on. Installing it on clients as well does no harm.
+- **Single player or a game you host:** install it on your own machine, since you are the server.
 
 With KitsuneStorage, use KitsuneStorage 1.0.3 or later alongside KitsuneBackpack200. Older versions shrink the loot window pool back to 192, and the bottom of a full 200 death bag won't show.
 
